@@ -1,0 +1,37 @@
+# а) Створення текстового файлу TF16_1 з символьними рядками різної довжини
+def create_file():
+    with open('TF16_1.txt', 'w') as file:
+        lines = [
+            "Apple orange banana.",
+            "Elephant zebra lion tiger.",
+            "Python programming language.",
+            "Student teacher eat"
+        ]
+        for line in lines:
+            file.write(line + '\n')
+
+# Функція для перевірки, чи символ є голосною літерою
+def is_vowel(char):
+    vowels = "aeiouAEIOU"
+    return char in vowels
+
+# б) Читання вмісту файла TF16_1 та запис слів, що починаються з голосних літер, у TF16_2
+def find_and_write_vowel_words():
+    with open('TF16_1.txt', 'r') as file_1, open('TF16_2.txt', 'w') as file_2:
+        for line in file_1:
+            words = line.split()
+            for word in words:
+                if is_vowel(word[0]):
+                    file_2.write(word + '\n')
+
+# в) Читання вмісту файла TF16_2 та друк по рядках
+def print_file_2_content():
+    with open('TF16_2.txt', 'r') as file:
+        for line in file:
+            print(line.strip())
+
+# Виклик функцій для виконання операцій
+create_file()
+find_and_write_vowel_words()
+print("Content of TF16_2 file:")
+print_file_2_content()
